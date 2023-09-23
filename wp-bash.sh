@@ -20,9 +20,10 @@ chmod +x wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
 
 # Set PHP.ini settings
+mkdir -p /etc/php/7.2/apache2/
 sed -i 's/memory_limit = .*/memory_limit = 256M/' /etc/php/7.2/apache2/php.ini
 sed -i 's/upload_max_filesize = .*/upload_max_filesize = 64M/' /etc/php/7.2/apache2/php.ini
 sed -i 's/post_max_size = .*/post_max_size = 64M/' /etc/php/7.2/apache2/php.ini
 
 # Restart Apache
-systemctl restart apache2
+ls /etc/php/7.2/apache2/php.ini
