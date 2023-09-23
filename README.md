@@ -1,5 +1,5 @@
 # How to
 > Simply run with
-```bash
+```shell
 curl -L https://raw.githubusercontent.com/cloudrack-ca/wp-bash/main/wp-bash.sh | bash
 ```
