@@ -1,7 +1,6 @@
-#!/bin/bash script that will allow me to install wordpress & wordpress cli on my local machine as well as set the requrired php.ini settings
+#!/bin/bash
 # This script is meant to be run on a fresh install of Ubuntu 18.04 LTS
 # This script is meant to be run as root
-#!/bin/bash
 
 # Add PHP 8.1 repository
 add-apt-repository ppa:ondrej/php
@@ -16,6 +15,14 @@ tar -zxvf latest.tar.gz
 mv wordpress /var/www/html/
 chown -R www-data:www-data /var/www/html/wordpress
 chmod -R 755 /var/www/html/wordpress
+
+# Configure Apache to serve WordPress
+cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/wordpress.conf
+sed -i 's/DocumentRoot \/var\/www\/html/DocumentRoot \/var\/www\/html\/wordpress/' /etc/apache2/sites-available/wordpress.conf
+sed -i 's/Directory \/var\/www\/html/Directory \/var\/www\/html\/wordpress/' /etc/apache2/sites-available/wordpress.conf
+a2dissite 000-default.conf
+a2ensite wordpress.conf
+systemctl reload apache2
 
 # Install WordPress CLI
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
