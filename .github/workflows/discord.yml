@@ -1,0 +1,20 @@
+name: Discord Webhook
+on: [push]
+
+jobs:
+  git:
+    runs-on: ubuntu-latest
+    steps:
+    -  uses: sarisia/actions-status-discord@v1
+       if: always()
+       with:
+        webhook: ${{ secrets.DISCORD_WEBHOOK }}
+        status: ${{ job.status }}
+        content: "Hey <@142025929454125056>"
+        title: "deploy"
+        description: "Build and deploy to GitHub Pages"
+        image: ${{ secrets.EMBED_IMAGE }}
+        color: 0x0000ff
+        url: "https://github.com/cloudrack-ca/wp-bash"
+        username: GitHub Actions
+        avatar_url: ${{ secrets.AVATAR_URL }}
