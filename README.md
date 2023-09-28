@@ -1,6 +1,11 @@
 # How to
 - To simply run this just copy and paste this into a fresh 18.04 Ubuntu or above server.
+# Confirmed Working On
+- [`Dell r210 1U Racked Chasised Server`](https://i.dell.com/sites/csdocuments/Shared-Content_data-Sheets_Documents/en/R210-SpecSheet.pdf) | **( Ubuntu 18.04 )**
+- [`Dell r210 1U Racked Chasised Server`](https://i.dell.com/sites/csdocuments/Shared-Content_data-Sheets_Documents/en/R210-SpecSheet.pdf) | **( Ubuntu 22.04 )**
  
+# Consider Donating Towards My Projects
+ - Like my work? Please donate @ [HERE](https://donatebot.io/checkout/1154471425663574039?buyer=142025929454125056)
   **( Must Be Run On A Clean Server - Base is Ubuntu18.04 And above )**
 ###  If you need help with this then this please join my discord [**HERE**](https://join.cloudrack.ca)
 
@@ -21,9 +26,6 @@ cd && tail -f install.log
 ```shell
 cd && cat -f install.log
 ```
-# Confirmed Working On
-- [`Dell r210 1U Racked Chasised Server`](https://i.dell.com/sites/csdocuments/Shared-Content_data-Sheets_Documents/en/R210-SpecSheet.pdf) | **( Ubuntu 18.04 )**
-- [`Dell r210 1U Racked Chasised Server`](https://i.dell.com/sites/csdocuments/Shared-Content_data-Sheets_Documents/en/R210-SpecSheet.pdf) | **( Ubuntu 22.04 )**
   
 
 ---
