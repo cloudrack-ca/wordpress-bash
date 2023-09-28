@@ -13,7 +13,11 @@ sudo apt update && sudo apt install wget -y && wget -L https://raw.githubusercon
 ```shell
 cd && tail -f install.log
 ```
-To Display after install
+### note 
+  - if you perform the above command **AFTER** the install you will need to press crtl+c to cancel and exit the command - if the install has completed already please use the command below to show the logs of the installation
+  - You will need to press crtl+c in the window the logs are open after the installation is done to exit the logs BUT you may also close your terminal as well this typically works but is not ideal as it can create zombie process and enough zombies can clutter your system just like the real world.
+  
+# To Display after install
 ```shell
 cd && cat -f install.log
 ```
