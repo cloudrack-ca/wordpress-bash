@@ -17,7 +17,7 @@ echo "▐         \___|_|\__|_||_|\_,_|_.__/  \___\___|_| |_|_\___/\__|        �
 echo "▐▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌";
 echo -e "${RED}*******************************************************************************${NC}"
 # echo "this !#/bin/sh script was written with no code by github copilot and time and effort put in by cloudrack.ca" 
-echo -e "${BLUE}this !#/bin/sh script was written with no code by github copilot and time and effort put in by cloudrack.ca${NC}"
+echo -e "${BLUE}this !#/bin/sh script was written with no code by github copilot and time and effort put in by https://join.cloudrack.ca${NC}"
 
 # Get localhost IP
 ip=$(hostname -I | awk '{print $1}')
