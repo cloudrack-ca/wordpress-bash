@@ -6,6 +6,7 @@
  
 # Consider Donating Towards My Projects
  - Like my work? Please donate @ [HERE](https://donatebot.io/checkout/1154471425663574039?buyer=142025929454125056)
+   
   **( Must Be Run On A Clean Server - Base is Ubuntu18.04 And above )**
 ###  If you need help with this then this please join my discord [**HERE**](https://join.cloudrack.ca)
 
