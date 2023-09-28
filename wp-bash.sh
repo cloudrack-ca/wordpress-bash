@@ -108,36 +108,35 @@ sed -i 's/post_max_size = .*/post_max_size = 64M/' /etc/php/$php_version/apache2
 echo -e "${GREEN}Restarting Apache...${NC}"
 systemctl restart apache2 &>> install.log
 # Tada Your WordPress installation is complete in cyan
-echo -e "${BLUE}🎉 Tada 🎉 Your WordPress installation is complete${NC}"
+echo -e "${GREEN}🎉  Tada  🎉  -  Your WordPress installation is complete ${NC}"
 # Display user's database info
-echo -e "${BLUE}Your WordPress database information:${NC}"
+echo -e "${GREEN}Your WordPress database information:${NC}"
 echo -e "${YELLOW}Please dont lose this - Your Database name:${NC} $wp_db_name"
 echo -e "${YELLOW}Please dont lose this - Your Database user:${NC} $wp_db_user"
 echo -e "${YELLOW}Please dont lose this - Your Database user password:${NC} $wp_db_password"
 
 # Display localhost IP
 ip=$(hostname -I | awk '{print $1}')
-echo -e "${RED}your wordpress installation will be on your IPv4 located -> :${NC} $ip"
+echo -e "${YELLOW}your wordpress installation will be on your IPv4 located -> :${NC} $ip"
 # echo "and or" in red
-echo -e "${RED}and or${NC}"
+echo -e "${YELLOW}and or${NC}"
 # Display localhost IPv6
 ip6=$(hostname -I | awk '{print $2}')
-echo -e "${RED}your wordpress installation will be on your IPv6 located -> :${NC} $ip6"
+echo -e "${YELLOW}your wordpress installation will be on your IPv6 located -> :${NC} $ip6"
 # Display wordpress directory
-echo -e "${RED}your wordpress installation directory is -> :${NC} $wp_dir"
+echo -e "${YELLOW}your wordpress installation directory is -> :${NC} $wp_dir"
 # Display PHP version
-echo -e "${RED}your wordpress installation wordpress php version is -> :${NC} $php_version"
+echo -e "${YELLOW}your wordpress installation wordpress php version is -> :${NC} $php_version"
 # Display WordPress version
-echo -e "${RED}your wordpress installation wordpress version is -> :${NC} $wp_version"
+echo -e "${YELLOW}your wordpress installation wordpress version is -> :${NC} $wp_version"
 # display ports used in red
-echo -e "${RED}your wordpress installation will be on your IPv4 or ipv6 located -> :${NC} 80 and 443"
+echo -e "${YELLOW}your wordpress installation will be on your IPv4 or ipv6 located -> :${NC} 80 and 443"
 # display ipv4 with port 80
-echo -e "${RED}your wordpress installation will be on your IPv4 located -> :${NC} $ip:80"
+echo -e "${YELLOW}your wordpress installation will be on your IPv4 located -> :${NC} $ip:80"
 # display ipv4 with port 443
-echo -e "${RED}your wordpress installation will be on your IPv4 located -> :${NC} $ip:443"
+echo -e "${YELLOW}your wordpress installation will be on your IPv4 located -> :${NC} $ip:443"
 # display ipv6 with port 80
-echo -e "${RED}your wordpress installation will be on your IPv6 located -> :${NC} $ip6:80"
+echo -e "${YELLOW}your wordpress installation will be on your IPv6 located -> :${NC} $ip6:80"
 # display ipv6 with port 443
-echo -e "${RED}your wordpress installation will be on your IPv6 located -> :${NC} $ip6:443"
-# end of file
-EOF
+echo -e "${YELLOW}your wordpress installation will be on your IPv6 located -> :${NC} $ip6:443"
+# end of file / script
