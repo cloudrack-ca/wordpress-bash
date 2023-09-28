@@ -115,3 +115,5 @@ echo -e "${YELLOW}Database user password:${NC} $wp_db_password"
 
 # Display localhost IP
 echo -e "${BLUE}Your localhost IP:${NC} $ip"
+
+EOF
