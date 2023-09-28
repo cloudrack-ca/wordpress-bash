@@ -1,13 +1,22 @@
 #!/bin/bash
 # This script is meant to be run on a fresh install of Ubuntu 18.04 LTS
 # This script is meant to be run as root
-clear
+
 # Define colors
 RED='\033[0;31m'
 BLUE='\033[0;34m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
+
+# clear the console screen
+clear
+
+# if user is not root cancel script install
+if [[ $EUID -ne 0 ]]; then
+   echo -e "${RED}This script must be run as root${NC}"
+   exit 1
+fi
 
 # Get localhost IP
 ip=$(hostname -I | awk '{print $1}')
@@ -177,8 +186,10 @@ if ! sed -i 's/post_max_size = .*/post_max_size = 64M/' /etc/php/$php_version/ap
     echo -e "${RED}Error updating PHP.ini file${NC}"
     exit 1
 fi
+
 # clear the console screen
 clear
+
 # Restart Apache
 echo -e "${GREEN}Restarting Apache...${NC}"
 if ! systemctl restart apache2 &>> install.log; then
