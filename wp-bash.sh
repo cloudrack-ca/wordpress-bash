@@ -36,8 +36,8 @@ echo -e "${BLUE}this !#/bin/sh script was written with no code by GitHub copilot
 # echo where the log files can be found and the command to access them or to display them
 # echo "log files can be found at /var/log/install.log or /var/log/install.log" in red
 echo -e "${RED}log files can be found at /var/log/install.log or /var/log/install.log${NC}"
-# echo to access the log files user command # cat /var/log/install.log in red
-echo -e "${RED}to access the log files user command # tail /var/log/install.log${NC}"
+# echo to access the log files use the command # cat /var/log/install.log in red
+echo -e "${RED}to access the log files use the command # cat /var/log/install.log${NC}"
 
 echo -e "${RED}*******************************************************************************${NC}"
 # echo more info about github copilot can be found at https://copilot.github.com in blue
