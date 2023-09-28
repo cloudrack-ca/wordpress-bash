@@ -8,13 +8,8 @@
 sudo apt update
 ```
 ```
-sudo apt install curl -y
+sudo apt install wget -y
 ```
-### Using Curl
-```
-curl -L https://raw.githubusercontent.com/cloudrack-ca/wp-bash/main/wp-bash.sh | bash
-```
-or 
 ### Using Wget
 ```
 wget -L https://raw.githubusercontent.com/cloudrack-ca/wp-bash/main/wp-bash.sh | bash
