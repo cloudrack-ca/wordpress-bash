@@ -16,12 +16,12 @@ echo "▐  |___| | (_ | |  _| __ | || | '_ \ | (__/ _ |  _| | / _ |  _| |___|  �
 echo "▐         \___|_|\__|_||_|\_,_|_.__/  \___\___|_| |_|_\___/\__|        ▌";
 echo "▐▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌";
 echo -e "${RED}*******************************************************************************${NC}"
-# echo "this !#/bin/sh script was written with no code by github copilot and time and effort put in by cloudrack.ca" 
-echo -e "${BLUE}this !#/bin/sh script was written with no code by github copilot and time and effort put in by https://join.cloudrack.ca${NC}"
+# echo "this !#/bin/sh script was written with no code by GitHub copilot and time and effort put in by cloudrack.ca" 
+echo -e "${BLUE}this !#/bin/sh script was written with no code by GitHub copilot and time and effort put in by https://join.cloudrack.ca${NC}"
 
 # Get localhost IP
 ip=$(hostname -I | awk '{print $1}')
-# Tell the user "Lets start installing your WordPress site" in Purple
+# Tell the user "Let's start installing your WordPress site" in Purple
 echo -e "${BLUE}Lets start installing your WordPress site simply follow the steps to install.${NC}"
 # Prompt user to define PHP version
 echo -e "${YELLOW}Enter PHP version (e.g. 8.1) [If none is entered default will be used: 8.1]: ${NC}"
@@ -42,9 +42,9 @@ wp_dir=${wp_dir:-/var/www/html/wordpress}
 echo -e "${GREEN}Using WordPress directory: $wp_dir${NC}"
 
 # Prompt user to define MySQL root password
-echo -e "${YELLOW}Enter MySQL root password [If none is entered default will be used: root]: ${NC}"
-read -s -p "(default: root) " mysql_root_password
-mysql_root_password=${mysql_root_password:-root}
+echo -e "${YELLOW}Enter MySQL root password [If none is entered default will be used: my5ql-r0Ot-Pa\$W0Rd]: ${NC}"
+read -s -p "(default: my5ql-r0Ot-Pa\$W0Rd) " mysql_root_password
+mysql_root_password=${mysql_root_password:-my5ql-r0Ot-Pa\$W0Rd}
 echo -e "${GREEN}Using MySQL root password: $mysql_root_password${NC}"
 
 # Prompt user to define WordPress database name
