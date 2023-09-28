@@ -5,7 +5,7 @@
 ###  If you need help with this then this please join my discord [**HERE**](https://join.cloudrack.ca)
 
 ```shell
-sudo apt update && sudo apt install wget -y && wget -L https://raw.githubusercontent.com/cloudrack-ca/wp-bash/main/wp-bash.sh && bash wp-bash.sh
+sudo apt update && sudo apt install wget -y && wget -L https://raw.githubusercontent.com/cloudrack-ca/wp-bash/main/wp-bash.sh && clear && bash wp-bash.sh
 ```
 
 # Confirmed Working On
