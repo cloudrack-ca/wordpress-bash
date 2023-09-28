@@ -5,15 +5,9 @@
 ###  If you need help with this then this please join my discord [**HERE**](https://join.cloudrack.ca)
 
 ```shell
-sudo apt update
+sudo apt update && sudo apt install wget -y && wget -L https://raw.githubusercontent.com/cloudrack-ca/wp-bash/main/wp-bash.sh && bash wp-bash.sh
 ```
-```
-sudo apt install wget -y
-```
-### Using Wget
-```
-wget -L https://raw.githubusercontent.com/cloudrack-ca/wp-bash/main/wp-bash.sh | bash
-```
+
 # Confirmed Working On
 - [`Dell r210 1U Racked Chasised Server`](https://i.dell.com/sites/csdocuments/Shared-Content_data-Sheets_Documents/en/R210-SpecSheet.pdf) | **( Ubuntu 18.04 )**
 - [`Dell r210 1U Racked Chasised Server`](https://i.dell.com/sites/csdocuments/Shared-Content_data-Sheets_Documents/en/R210-SpecSheet.pdf) | **( Ubuntu 22.04 )**
