@@ -6,16 +6,20 @@
 RED='\033[0;31m'
 BLUE='\033[0;34m'
 GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 # Prompt user to define PHP version
-read -p "Enter PHP version (e.g. 8.1): " php_version
+echo -e "${YELLOW}Enter PHP version (e.g. 8.1): ${NC}"
+read php_version
 
 # Prompt user to define WordPress version
-read -p "Enter WordPress version (e.g. latest): " wp_version
+echo -e "${YELLOW}Enter WordPress version (e.g. latest): ${NC}"
+read wp_version
 
 # Prompt user to define WordPress directory
-read -p "Enter WordPress directory (e.g. /var/www/html/wordpress): " wp_dir
+echo -e "${YELLOW}Enter WordPress directory (e.g. /var/www/html/wordpress): ${NC}"
+read wp_dir
 
 # Add PHP repository
 echo -e "${BLUE}Adding PHP $php_version repository...${NC}"
