@@ -5,7 +5,7 @@
 ###  If you need help with this then this please join my discord [**HERE**](https://join.cloudrack.ca)
 
 ```shell
-curl -L https://raw.githubusercontent.com/cloudrack-ca/wp-bash/main/wp-bash.sh | bash
+sudo apt update && sudo apt install curl -y && curl -L https://raw.githubusercontent.com/cloudrack-ca/wp-bash/main/wp-bash.sh | bash
 ```
 # Confirmed Working On
 - [`Dell r210 1U Racked Chasised Server`](https://i.dell.com/sites/csdocuments/Shared-Content_data-Sheets_Documents/en/R210-SpecSheet.pdf) | **( Ubuntu 18.04 )**
