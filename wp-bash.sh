@@ -116,10 +116,28 @@ echo -e "${YELLOW}Please dont lose this - Your Database user:${NC} $wp_db_user"
 echo -e "${YELLOW}Please dont lose this - Your Database user password:${NC} $wp_db_password"
 
 # Display localhost IP
-echo -e "${BLUE}your wordpress installation will be on your IP located -> :${NC} $ip"
+ip=$(hostname -I | awk '{print $1}')
+echo -e "${RED}your wordpress installation will be on your IPv4 located -> :${NC} $ip"
+# echo "and or" in red
+echo -e "${RED}and or${NC}"
+# Display localhost IPv6
+ip6=$(hostname -I | awk '{print $2}')
+echo -e "${RED}your wordpress installation will be on your IPv6 located -> :${NC} $ip6"
 # Display wordpress directory
-echo -e "${BLUE}your wordpress installation will be on your IP located -> :${NC} $wp_dir"
+echo -e "${RED}your wordpress installation directory is -> :${NC} $wp_dir"
 # Display PHP version
-echo -e "${BLUE}your wordpress installation will be on your IP located -> :${NC} $php_version"
+echo -e "${RED}your wordpress installation wordpress php version is -> :${NC} $php_version"
 # Display WordPress version
-echo -e "${BLUE}your wordpress installation will be on your IP located -> :${NC} $wp_version"
+echo -e "${RED}your wordpress installation wordpress version is -> :${NC} $wp_version"
+# display ports used in red
+echo -e "${RED}your wordpress installation will be on your IPv4 or ipv6 located -> :${NC} 80 and 443"
+# display ipv4 with port 80
+echo -e "${RED}your wordpress installation will be on your IPv4 located -> :${NC} $ip:80"
+# display ipv4 with port 443
+echo -e "${RED}your wordpress installation will be on your IPv4 located -> :${NC} $ip:443"
+# display ipv6 with port 80
+echo -e "${RED}your wordpress installation will be on your IPv6 located -> :${NC} $ip6:80"
+# display ipv6 with port 443
+echo -e "${RED}your wordpress installation will be on your IPv6 located -> :${NC} $ip6:443"
+# end of file
+EOF
