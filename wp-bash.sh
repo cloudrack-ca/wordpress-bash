@@ -177,7 +177,8 @@ if ! sed -i 's/post_max_size = .*/post_max_size = 64M/' /etc/php/$php_version/ap
     echo -e "${RED}Error updating PHP.ini file${NC}"
     exit 1
 fi
-
+# clear the console screen
+clear
 # Restart Apache
 echo -e "${GREEN}Restarting Apache...${NC}"
 if ! systemctl restart apache2 &>> install.log; then
