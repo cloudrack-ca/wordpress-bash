@@ -56,13 +56,13 @@ configure_php() {
 
 create_database() {
     log "Creating database..."
-    mysql -u$DB_USER -p$DB_PASSWORD -e "CREATE DATABASE IF NOT EXISTS $DB_NAME;"
+    mysql -u$DB_USER -p"$DB_PASSWORD" -e "CREATE DATABASE IF NOT EXISTS $DB_NAME;"
 }
 
 configure_wordpress() {
     log "Configuring WordPress..."
     cd /var/www/html/wordpress
-    wp core config --dbname=$DB_NAME --dbuser=$DB_USER --dbpass=$DB_PASSWORD --dbhost=$DB_HOST --extra-php <<PHP
+    wp core config --dbname=$DB_NAME --dbuser=$DB_USER --dbpass="$DB_PASSWORD" --dbhost=$DB_HOST --extra-php <<PHP
 define( 'WP_DEBUG', true );
 define( 'WP_DEBUG_LOG', true );
 PHP
