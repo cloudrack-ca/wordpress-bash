@@ -8,6 +8,12 @@
 sudo apt update && sudo apt install wget -y && wget -L https://raw.githubusercontent.com/cloudrack-ca/wp-bash/main/wp-bash.sh && clear && bash wp-bash.sh
 ```
 
+# Installation logs
+- These can be found simply by using the below command in another window well the installation performs.
+```shell
+sudo cd .. && tail -f install.log
+```
+
 # Confirmed Working On
 - [`Dell r210 1U Racked Chasised Server`](https://i.dell.com/sites/csdocuments/Shared-Content_data-Sheets_Documents/en/R210-SpecSheet.pdf) | **( Ubuntu 18.04 )**
 - [`Dell r210 1U Racked Chasised Server`](https://i.dell.com/sites/csdocuments/Shared-Content_data-Sheets_Documents/en/R210-SpecSheet.pdf) | **( Ubuntu 22.04 )**
