@@ -1,6 +1,6 @@
 #!/bin/bash
-# This script is meant to be run on a fresh install of Ubuntu 18.04 LTS
-# This script is meant to be run as root
+# This script is meant to be run on a fresh install of Ubuntu 18.04 LTS and above tested confirmed shown on github page
+# This script must be run as root
 
 # Define colors
 RED='\033[0;31m'
@@ -12,7 +12,7 @@ NC='\033[0m' # No Color
 # clear the console screen
 clear
 
-# if user is not root cancel script install
+# if user is not a root user cancel script install
 if [[ $EUID -ne 0 ]]; then
    echo -e "${RED}This script must be run as root${NC}"
    exit 1
@@ -20,8 +20,32 @@ fi
 
 # Get localhost IP
 ip=$(hostname -I | awk '{print $1}')
+
+
+echo -e "${RED}*******************************************************************************${NC}"
+echo "▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌";
+echo "▐          ___ _ _   _  _      _       ___     ___ _ _     _           ▌";
+echo "▐   ___   / __(_| |_| || |_  _| |__   / __|___| _ (_| |___| |_   ___   ▌";
+echo "▐  |___| | (_ | |  _| __ | || | '_ \ | (__/ _ |  _| | / _ |  _| |___|  ▌";
+echo "▐         \___|_|\__|_||_|\_,_|_.__/  \___\___|_| |_|_\___/\__|        ▌";
+echo "▐▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌";
+echo -e "${RED}*******************************************************************************${NC}"
+# echo "this !#/bin/sh script was written with no code by github copilot and time and effort put in by cloudrack.ca" 
+echo -e "${BLUE}this !#/bin/sh script was written with no code by github copilot and time and effort put in by cloudrack.ca${NC}"
+
+# echo where the log files can be found and the command to access them or to display them
+# echo "log files can be found at /var/log/install.log or cat /var/log/install.log" in red
+echo -e "${RED}log files can be found at /var/log/install.log or cat /var/log/install.log${NC}"
+# echo to access the log files user command # cat /var/log/install.log in red
+echo -e "${RED}to access the log files user command # cat /var/log/install.log${NC}"
+
+echo -e "${RED}*******************************************************************************${NC}"
+# echo more info about github copilot can be found at https://copilot.github.com in blue
+echo -e "${BLUE}more info about github copilot can be found at https://copilot.github.com${NC}"
+
 # Tell the user "Lets start installing your WordPress site" in Purple
 echo -e "${BLUE}Lets start installing your WordPress site simply follow the steps to install.${NC}"
+
 # Prompt user to define PHP version
 echo -e "${YELLOW}Enter PHP version (e.g. 8.1) [If none is entered default will be used: 8.1]: ${NC}"
 read -p "(default: 8.1) " php_version
@@ -205,6 +229,28 @@ echo -e "${GREEN}Your WordPress database information:${NC}"
 echo -e "${YELLOW}Please dont lose this - Your Database name:${NC} $wp_db_name"
 echo -e "${YELLOW}Please dont lose this - Your Database user:${NC} $wp_db_user"
 echo -e "${YELLOW}Please dont lose this - Your Database user password:${NC} $wp_db_password"
+
+# Donate to my projects at https://donate.cloudrack.ca in red & yellow
+echo -e "${RED}-------------------------------------------------------------------${NC}"
+echo -e "${YELLOW}-------------------------------------------------------------------${NC}"
+
+echo -e "${YELLOW}donate to my projects at https://donate.cloudrack.ca${NC}"
+echo -e "${YELLOW}-------------------------------------------------------------------${NC}"
+echo -e "${RED}-------------------------------------------------------------------${NC}"
+
+echo -e "\033[0;34m  *******************************************************************************"
+echo -e "  *   _____           _       __      ____                                   __ *"
+echo -e "  *  / ___/__________(_)___  / /_    / __ \____ _      _____  ________  ____/ / *"
+echo -e "  *  \__ \/ ___/ ___/ / __ \/ __/   / /_/ / __ \ | /| / / _ \/ ___/ _ \/ __  /  *"
+echo -e "  * ___/ / /__/ /  / / /_/ / /_    / ____/ /_/ / |/ |/ /  __/ /  /  __/ /_/ /   *"
+echo -e "  */____/\___/_/  /_/ .___/\__/   /_/    \____/|__/|__/\___/_/   \___/\__,_/    *"
+echo -e "  *    ____        /_/________                __                __              *"
+echo -e "  *   / __ )__  __   / ____/ /___  __  ______/ /________ ______/ /__ _________ *"
+echo -e "  *  / __  / / / /  / /   / / __ \/ / / / __  / ___/ __ \`/ ___/ //_// ___/ __ \`/*"
+echo -e "  * / /_/ / /_/ /  / /___/ / /_/ / /_/ / /_/ / /  / /_/ / /__/ ,< _/ /__/ /_/ / *"
+echo -e "  */_____/\__, /   \____/_/\____/\__,_/\__,_/_/   \__,_/\___/_/|_(_)___/\__,_/  *"
+echo -e "  *      /____/                                                                 *"
+echo -e "  *******************************************************************************\033[0m"
 
 # Display localhost IP
 ip=$(hostname -I | awk '{print $1}')
