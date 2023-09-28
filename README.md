@@ -11,7 +11,7 @@ sudo apt update && sudo apt install wget -y && wget -L https://raw.githubusercon
 # Installation logs
 - These can be found simply by using the below command in another window well the installation performs.
 ```shell
-sudo cd .. && tail -f install.log
+sudo cd && tail -f install.log
 ```
 
 # Confirmed Working On
