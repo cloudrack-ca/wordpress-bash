@@ -1,7 +1,7 @@
 #!/bin/bash
 # This script is meant to be run on a fresh install of Ubuntu 18.04 LTS
 # This script is meant to be run as root
-
+clear
 # Define colors
 RED='\033[0;31m'
 BLUE='\033[0;34m'
