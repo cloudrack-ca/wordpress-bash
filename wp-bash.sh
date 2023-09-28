@@ -30,14 +30,14 @@ echo "▐  |___| | (_ | |  _| __ | || | '_ \ | (__/ _ |  _| | / _ |  _| |___|  �
 echo "▐         \___|_|\__|_||_|\_,_|_.__/  \___\___|_| |_|_\___/\__|        ▌";
 echo "▐▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌";
 echo -e "${RED}*******************************************************************************${NC}"
-# echo "this !#/bin/sh script was written with no code by github copilot and time and effort put in by cloudrack.ca" 
-echo -e "${BLUE}this !#/bin/sh script was written with no code by github copilot and time and effort put in by cloudrack.ca${NC}"
+# echo "this !#/bin/sh script was written with no code by GitHub copilot and time and effort put in by cloudrack.ca" 
+echo -e "${BLUE}this !#/bin/sh script was written with no code by GitHub copilot and time and effort put in by join.cloudrack.ca${NC}"
 
 # echo where the log files can be found and the command to access them or to display them
-# echo "log files can be found at /var/log/install.log or cat /var/log/install.log" in red
-echo -e "${RED}log files can be found at /var/log/install.log or cat /var/log/install.log${NC}"
+# echo "log files can be found at /var/log/install.log or /var/log/install.log" in red
+echo -e "${RED}log files can be found at /var/log/install.log or /var/log/install.log${NC}"
 # echo to access the log files user command # cat /var/log/install.log in red
-echo -e "${RED}to access the log files user command # cat /var/log/install.log${NC}"
+echo -e "${RED}to access the log files user command # tail /var/log/install.log${NC}"
 
 echo -e "${RED}*******************************************************************************${NC}"
 # echo more info about github copilot can be found at https://copilot.github.com in blue
