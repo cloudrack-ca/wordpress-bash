@@ -1,133 +1,64 @@
 #!/bin/bash
+# This script is meant to be run on a fresh install of Ubuntu 18.04 LTS
+# This script is meant to be run as root
 
-# Define default variables
-WORDPRESS_VERSION="latest"
-DB_NAME="wordpress"
-DB_USER="wordpress"
-DB_PASSWORD="password"
-DB_HOST="localhost"
-LOG_FILE="/var/log/install-wordpress.log"
+# Define colors
+RED='\033[0;31m'
+BLUE='\033[0;34m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
 
-# Define functions
-log() {
-    echo "$(date) - $1" >> $LOG_FILE
-}
+# Prompt user to define PHP version
+read -p "Enter PHP version (e.g. 8.1): " php_version
 
-install_packages() {
-    log "Installing required packages..."
-    apt-get update
-    apt-get install -y apache2 mysql-server php8.1 libapache2-mod-php8.1 php8.1-mysql php8.1-curl php8.1-gd php8.1-mbstring php8.1-xml php8.1-xmlrpc php8.1-soap php8.1-intl php8.1-zip curl
-}
+# Prompt user to define WordPress version
+read -p "Enter WordPress version (e.g. latest): " wp_version
 
-download_wordpress() {
-    log "Downloading WordPress..."
-    curl -O https://wordpress.org/$WORDPRESS_VERSION.tar.gz
-    tar -zxvf $WORDPRESS_VERSION.tar.gz
-    mv wordpress /var/www/html/
-    chown -R www-data:www-data /var/www/html/wordpress
-    chmod -R 755 /var/www/html/wordpress
-}
+# Prompt user to define WordPress directory
+read -p "Enter WordPress directory (e.g. /var/www/html/wordpress): " wp_dir
 
-configure_apache() {
-    log "Configuring Apache to serve WordPress..."
-    cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/wordpress.conf
-    sed -i 's/DocumentRoot \/var\/www\/html/DocumentRoot \/var\/www\/html\/wordpress/' /etc/apache2/sites-available/wordpress.conf
-    sed -i 's/Directory \/var\/www\/html/Directory \/var\/www\/html\/wordpress/' /etc/apache2/sites-available/wordpress.conf
-    a2dissite 000-default.conf
-    a2ensite wordpress.conf
-    systemctl reload apache2
-}
+# Add PHP repository
+echo -e "${BLUE}Adding PHP $php_version repository...${NC}"
+add-apt-repository -y ppa:ondrej/php &>> install.log
 
-install_wp_cli() {
-    log "Installing WordPress CLI..."
-    curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-    chmod +x wp-cli.phar
-    mv wp-cli.phar /usr/local/bin/wp
-}
-
-configure_php() {
-    log "Configuring PHP settings..."
-    mkdir -p /etc/php/8.1/apache2/
-    touch /etc/php/8.1/apache2/php.ini
-    sed -i 's/memory_limit = .*/memory_limit = 256M/' /etc/php/8.1/apache2/php.ini
-    sed -i 's/upload_max_filesize = .*/upload_max_filesize = 64M/' /etc/php/8.1/apache2/php.ini
-    sed -i 's/post_max_size = .*/post_max_size = 64M/' /etc/php/8.1/apache2/php.ini
-}
-
-create_database() {
-    log "Creating database..."
-    mysql -u$DB_USER -p"$DB_PASSWORD" -e "CREATE DATABASE IF NOT EXISTS $DB_NAME;"
-}
-
-configure_wordpress() {
-    log "Configuring WordPress..."
-    cd /var/www/html/wordpress
-    wp core config --dbname=$DB_NAME --dbuser=$DB_USER --dbpass="$DB_PASSWORD" --dbhost=$DB_HOST --extra-php <<PHP
-define( 'WP_DEBUG', true );
-define( 'WP_DEBUG_LOG', true );
-PHP
-    wp core install --url=http://example.com --title="My WordPress Site" --admin_user=admin --admin_password=password --admin_email=admin@example.com
-}
-
-# Parse command line arguments
-while [[ $# -gt 0 ]]
-do
-    key="$1"
-
-    case $key in
-        -v|--version)
-        WORDPRESS_VERSION="$2"
-        shift # past argument
-        shift # past value
-        ;;
-        -n|--name)
-        DB_NAME="$2"
-        shift # past argument
-        shift # past value
-        ;;
-        -u|--user)
-        DB_USER="$2"
-        shift # past argument
-        shift # past value
-        ;;
-        -p|--password)
-        DB_PASSWORD="$2"
-        shift # past argument
-        shift # past value
-        ;;
-        -h|--host)
-        DB_HOST="$2"
-        shift # past argument
-        shift # past value
-        ;;
-        *)    # unknown option
-        shift # past argument
-        ;;
-    esac
-done
-
-# Main script
-log "Starting WordPress installation..."
+# Update apt
+echo -e "${GREEN}Updating apt...${NC}"
+apt-get update &>> install.log
 
 # Install required packages
-install_packages || { log "Error installing packages"; exit 1; }
+echo -e "${BLUE}Installing required packages...${NC}"
+apt-get install -y apache2 mysql-server php$php_version libapache2-mod-php$php_version php$php_version-mysql php$php_version-curl php$php_version-gd php$php_version-mbstring php$php_version-xml php$php_version-xmlrpc php$php_version-soap php$php_version-intl php$php_version-zip curl &>> install.log
 
 # Download and extract WordPress
-download_wordpress || { log "Error downloading WordPress"; exit 1; }
+echo -e "${BLUE}Downloading and extracting WordPress $wp_version...${NC}"
+wget -q https://wordpress.org/$wp_version.tar.gz -O - | tar -xz -C /tmp &>> install.log
+mv /tmp/wordpress $wp_dir
+chown -R www-data:www-data $wp_dir
+chmod -R 755 $wp_dir
 
 # Configure Apache to serve WordPress
-configure_apache || { log "Error configuring Apache"; exit 1; }
+echo -e "${BLUE}Configuring Apache to serve WordPress...${NC}"
+cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/wordpress.conf
+sed -i "s|DocumentRoot /var/www/html|DocumentRoot $wp_dir|" /etc/apache2/sites-available/wordpress.conf
+sed -i "s|<Directory /var/www/html>|<Directory $wp_dir>|" /etc/apache2/sites-available/wordpress.conf
+a2dissite 000-default.conf &>> install.log
+a2ensite wordpress.conf &>> install.log
+systemctl reload apache2 &>> install.log
 
 # Install WordPress CLI
-install_wp_cli || { log "Error installing WP CLI"; exit 1; }
+echo -e "${BLUE}Installing WordPress CLI...${NC}"
+curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar &>> install.log
+chmod +x wp-cli.phar
+mv wp-cli.phar /usr/local/bin/wp
 
 # Set PHP.ini settings
-configure_php || { log "Error configuring PHP"; exit 1; }
+echo -e "${BLUE}Setting PHP.ini settings...${NC}"
+mkdir -p /etc/php/$php_version/apache2/
+touch /etc/php/$php_version/apache2/php.ini
+sed -i 's/memory_limit = .*/memory_limit = 256M/' /etc/php/$php_version/apache2/php.ini
+sed -i 's/upload_max_filesize = .*/upload_max_filesize = 64M/' /etc/php/$php_version/apache2/php.ini
+sed -i 's/post_max_size = .*/post_max_size = 64M/' /etc/php/$php_version/apache2/php.ini
 
-# Create database
-create_database || { log "Error creating database"; exit 1; }
-
-# Configure WordPress
-configure_wordpress || { log "Error configuring WordPress"; exit 1; }
-
-log "WordPress installation complete."
+# Restart Apache
+echo -e "${GREEN}Restarting Apache...${NC}"
+systemctl restart apache2 &>> install.log
