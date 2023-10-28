@@ -27,7 +27,7 @@ sudo apt update && sudo apt install wget -y && wget -L https://raw.githubusercon
 ### CONSIDER DONATING TOWARDS MY PROJECTS
  - Like my work? Please donate @ [HERE](https://donatebot.io/checkout/1154471425663574039?buyer=142025929454125056)
    
-###  If you need help with this then this please join my discord [**HERE**](https://join.cloudrack.ca)
+###  If you need help with this then please join my discord [**HERE**](https://join.cloudrack.ca)
 
 # INSTALLATION LOGS
 - These can be found simply by using the below command in another window well the installation performs.
