@@ -90,7 +90,7 @@ echo -e "${GREEN}Updating apt...${NC}"
 loading_bar $!
 
 # Install required packages
-echo -e "${BLUE}Installing required packages...${NC}"
+echo -e "${BLUE}Installing required packages this may take along time depending on your servers setup & specs...${NC}"
 apt-get install -y apache2 mysql-server php$php_version libapache2-mod-php$php_version php$php_version-mysql php$php_version-curl php$php_version-gd php$php_version-mbstring php$php_version-xml php$php_version-xmlrpc php$php_version-soap php$php_version-intl php$php_version-zip curl &>> install.log & 
 loading_bar $!
 
