@@ -40,7 +40,7 @@ ip=$(hostname -I | awk '{print $1}')
 # Tell the user "Let's start installing your WordPress site" in Purple
 echo -e "${BLUE}Lets start installing your WordPress site simply follow the steps to install.${NC}"
 # Prompt user to define PHP version
-echo -e "${YELLOW}Enter PHP version (e.g. 8.3) [If none is entered default will be used: 8.1]: ${NC}"
+echo -e "${YELLOW}Enter PHP version (e.g. 8.3) [If none is entered default will be used: 8.3]: ${NC}"
 read -p "(default: 8.3) " php_version
 php_version=${php_version:-8.3}
 echo -e "${GREEN}Using PHP version: $php_version${NC}"
