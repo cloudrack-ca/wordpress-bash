@@ -81,12 +81,12 @@ echo -e "${GREEN}Using WordPress database user password: $wp_db_password${NC}"
 
 # Add PHP repository
 echo -e "${BLUE}Adding PHP $php_version repository...${NC}"
-add-apt-repository -y ppa:ondrej/php &>> install.log
+(add-apt-repository -y ppa:ondrej/php &>> install.log) &
 loading_bar $!
 
 # Update apt
 echo -e "${GREEN}Updating apt...${NC}"
-apt-get update &>> install.log
+(apt-get update &>> install.log) &
 loading_bar $!
 
 # Install required packages
