@@ -173,7 +173,7 @@ echo -e "${YELLOW}your wordpress installation will be on your IPv4 located -> :$
 echo -e "${YELLOW}and or${NC}"
 # Display localhost IPv6
 ip6=$(hostname -I | awk '{print $2}')
-echo -e "${YELLOW}your wordpress installation will be on your IPv6 located -> :${NC} $ip6"
+echo -e "${YELLOW}your wordpress installation will be on your IPv6 located -> :${NC} [$ip6]"
 # Display wordpress directory
 echo -e "${YELLOW}your wordpress installation directory is -> :${NC} $wp_dir"
 # Display PHP version
@@ -187,7 +187,16 @@ echo -e "${YELLOW}your wordpress installation will be on your IPv4 located -> :$
 # display ipv4 with port 443
 echo -e "${YELLOW}your wordpress installation will be on your IPv4 located -> :${NC} $ip:443"
 # display ipv6 with port 80
-echo -e "${YELLOW}your wordpress installation will be on your IPv6 located -> :${NC} $ip6:80"
+echo -e "${YELLOW}your wordpress installation will be on your IPv6 located -> :${NC} [$ip6]:80"
 # display ipv6 with port 443
-echo -e "${YELLOW}your wordpress installation will be on your IPv6 located -> :${NC} $ip6:443"
+echo -e "${YELLOW}your wordpress installation will be on your IPv6 located -> :${NC} [$ip6]:443"
+# Get the server's hostname
+server_hostname=$(hostname)
+# Append ".local" to the hostname
+server_hostname_with_local="${server_hostname}.local"
+# Prepend "http://" to the hostname
+server_hostname_with_http="http://${server_hostname_with_local}"
+
+# Append the modified hostname to the end of the file
+echo -e "${YELLOW}your wordpress installation will also be found on your hostname ${server_hostname_with_http}"
 # end of file / script
