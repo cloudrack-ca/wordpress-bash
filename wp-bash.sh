@@ -1,5 +1,5 @@
 #!/bin/bash
-# This script is meant to be run on a fresh install of Ubuntu 18.04 LTS
+# This script is meant to be run on a fresh install of Ubuntu 18.04 | 20.04 | 22.04 | Debian 11
 # This script is meant to be run as root
 
 # Define colors
