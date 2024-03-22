@@ -8,6 +8,22 @@ BLUE='\033[0;34m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
+
+# Function to display a loading bar
+function loading_bar() {
+    local pid=$1
+    local delay=0.1
+    local spinstr='|/-\'
+    while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
+        local temp=${spinstr#?}
+        printf " [%c]  " "$spinstr"
+        local spinstr=$temp${spinstr%"$temp"}
+        sleep $delay
+        printf "\b\b\b\b\b\b"
+    done
+    printf "    \b\b\b\b"
+}
+
 echo -e "${RED}*******************************************************************************${NC}"
 echo "▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌";
 echo "▐          ___ _ _   _  _      _       ___     ___ _ _     _           ▌";
@@ -68,10 +84,13 @@ echo -e "${GREEN}Using WordPress database user password: $wp_db_password${NC}"
 # Add PHP repository
 echo -e "${BLUE}Adding PHP $php_version repository...${NC}"
 add-apt-repository -y ppa:ondrej/php &>> install.log
+loading_bar $!
 
 # Update apt
 echo -e "${GREEN}Updating apt...${NC}"
 apt-get update &>> install.log
+loading_bar $!
+
 
 # Install required packages
 echo -e "${BLUE}Installing required packages...${NC}"
