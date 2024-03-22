@@ -139,9 +139,10 @@ echo -e "${GREEN}🎉  Tada  🎉  -  Your WordPress installation is complete ${
 
 # Display user's database info
 echo -e "${GREEN}Your WordPress database information:${NC}"
-echo -e "${YELLOW}Please dont lose this - Your Database name:${NC} $wp_db_name"
-echo -e "${YELLOW}Please dont lose this - Your Database user:${NC} $wp_db_user"
-echo -e "${YELLOW}Please dont lose this - Your Database user password:${NC} $wp_db_password"
+echo -e "${YELLOW}Please don't lose this - Your Database name:${NC} $wp_db_name"
+echo -e "${YELLOW}Please don't lose this - Your Database user:${NC} $wp_db_user"
+echo -e "${YELLOW}Please don't lose this - Your Database user password:${NC} $wp_db_password"
+echo -e "${YELLOW}Please don't lose this - Your Root MySql password: $mysql_root_password${NC}"
 
 # Donate to my projects at https://donate.cloudrack.ca in red & yellow
 echo -e "${RED}-------------------------------------------------------------------${NC}"
